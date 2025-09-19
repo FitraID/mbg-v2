@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Filament\Resources\PotonganResource\Pages;
+
+use App\Filament\Resources\PotonganResource;
+use Filament\Actions;
+use Filament\Resources\Pages\ListRecords;
+
+class ListPotongans extends ListRecords
+{
+    protected static string $resource = PotonganResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
+        ];
+    }
+}
