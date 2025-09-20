@@ -54,7 +54,7 @@ class Karyawan extends Model
     /**
      * Get the salaries (gajis) for the employee.
      */
-    public function gajis(): HasMany
+    public function Pendapatan(): HasMany
     {
         return $this->hasMany(Gaji::class, 'id_pegawai');
     }
@@ -62,7 +62,7 @@ class Karyawan extends Model
     /**
      * Get the deductions (potongans) for the employee.
      */
-    public function potongans(): HasMany
+    public function Potongan(): HasMany
     {
         return $this->hasMany(Potongan::class, 'id_pegawai');
     }

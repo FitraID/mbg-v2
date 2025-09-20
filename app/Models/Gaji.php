@@ -16,6 +16,7 @@ class Gaji extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'nama',
         'id_pegawai',
         'jumlah',
         'status',

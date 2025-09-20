@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('gajis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pegawai');
+            $table->string('nama');
             $table->decimal('jumlah', 10, 2);
             $table->string('status');
             $table->string('keterangan')->nullable();

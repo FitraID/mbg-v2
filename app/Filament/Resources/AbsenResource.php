@@ -19,6 +19,8 @@ class AbsenResource extends Resource
     protected static ?string $model = Absen::class;
     protected static ?string $navigationIcon = 'heroicon-o-calendar';
     protected static ?string $pluralModelLabel = 'Absensi';
+    protected static ?string $navigationGroup = 'Fitur';
+    protected static ?string $navigationGroupIcon = 'heroicon-o-clipboard-document-check';
 
     public static function form(Form $form): Form
     {

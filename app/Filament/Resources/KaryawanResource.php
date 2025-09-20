@@ -3,7 +3,9 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\KaryawanResource\Pages;
+use App\Filament\Resources\KaryawanResource\RelationManagers;
 use App\Models\Karyawan;
+use App\Models\Gaji;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -17,6 +19,8 @@ class KaryawanResource extends Resource
     protected static ?string $model = Karyawan::class;
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $pluralModelLabel = 'Karyawan';
+    protected static ?string $navigationGroup = 'Master Data';
+    protected static ?string $navigationGroupIcon = 'heroicon-o-folder-open';
 
     public static function form(Form $form): Form
     {
@@ -65,6 +69,14 @@ class KaryawanResource extends Resource
                             ])
                             ->required()
                             ->helperText('Atur status kepegawaian karyawan saat ini.'),
+                        TextInput::make('gaji_pokok')
+                            ->label('Gaji Pokok (Rp)')
+                            ->required()
+                            ->numeric()
+                            ->prefix('Rp')
+                            ->placeholder('contoh: 3000000')
+                            ->helperText('Jumlah gaji pokok')
+                            ->hiddenOn('edit'),
                     ])
                     ->columns(2)
                     ->heading('Detail Karyawan'),
@@ -102,7 +114,8 @@ class KaryawanResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\GajiRelationManager::class,
+            RelationManagers\PotongansRelationManager::class,
         ];
     }
 
